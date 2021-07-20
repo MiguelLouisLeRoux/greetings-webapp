@@ -7,9 +7,11 @@ const factoryLogic = require('./factory-logic');
 const factory = factoryLogic();
 
 app.listen(PORT, function() {});
+app.use(express.static('public'));
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.engine('handlebars', exphbs({defaultLayout: 'main'}));
-app.set('view engine', 'handlebars')
+app.engine('handlebars', exphbs({defaultLayout: 'main', layoutsDir:__dirname + '/views/layout'}));
+app.set('view engine', 'handlebars');
+
