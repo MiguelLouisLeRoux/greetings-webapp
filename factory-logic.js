@@ -10,8 +10,8 @@ module.exports = function greetExerciseFactFunct() {
 
     //Error message variable
     let error = "Oops, no name entered.";
-    let secondGreet = "You have already been greeted.";
-    let noRad = "Oops, you have not selected a language.";
+    let secondGreet = "This name has already been greeted.";
+    let noRad = "Oops, no language has been selected a language.";
 
     //languages
     // var eng = "Hello, ";
@@ -97,41 +97,10 @@ module.exports = function greetExerciseFactFunct() {
         }
     }
 
-    // function clearingButtonFactFunc() {
-    //     localStorage.clear;
-    //     counter = 0;
-    //     namesList = {};
-    //     theGreet = "";
-        
-        
-    // }
-
-    // function setNames() {
-    //     for (const prop in namesList) {
-    //         namesL += " " + prop + ": " + namesList[prop] + ";";
-    //     }
-    // }
-
-    // function setLoc() {
-    //     localStorage['tell'] = counter;
-    //     localStorage['names'] = JSON.stringify(namesList);
-    // }
-
-    // function retrieve() {
-    //     if (localStorage['tell'] && localStorage['names']) {
-    //         counter = Number(localStorage['tell']);
-    //         namesList = JSON.parse((localStorage['names']));
-    //     }
-    // }
-
     return { getName,
              radioCheck,
              values,
              noRadioButton,
-             setLoc,
-             retrieve,
-             setNames,
-             clearingButtonFactFunc
     }
     
 }
