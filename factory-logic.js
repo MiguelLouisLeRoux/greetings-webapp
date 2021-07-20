@@ -1,25 +1,25 @@
-function greetExerciseFactFunct() {
+module.exports = function greetExerciseFactFunct() {
 
     //counter and object list
-    var counter = 0;
-    var namesList = {};
+    let counter = 0;
+    let namesList = {};
 
     //name variable
-    var userName = "";
-    var namesL = "";
+    let userName = "";
+    let namesL = "";
 
     //Error message variable
-    var error = "Oops, no name entered.";
-    var secondGreet = "You have already been greeted.";
-    var noRad = "Oops, you have not selected a language.";
+    let error = "Oops, no name entered.";
+    let secondGreet = "You have already been greeted.";
+    let noRad = "Oops, you have not selected a language.";
 
     //languages
     // var eng = "Hello, ";
-    var portGreet = "Olá, ";
-    var swedGreet = "Hej, ";
-    var japGreet = "こんにちは, ";
-    var theGreet = "";
-    var theWarn = "";
+    let portGreet = "Olá, ";
+    let swedGreet = "Hej, ";
+    let japGreet = "こんにちは, ";
+    let theGreet = "";
+    let theWarn = "";
     
     function getName(nameInput) {
         userName = nameInput.trim();
