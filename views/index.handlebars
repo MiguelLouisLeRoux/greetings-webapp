@@ -1,0 +1,58 @@
+<div class="center">
+    <header> 
+        Greetings
+    </header>
+</div>
+<br>
+<div class="container">
+    <form action="/name" method="POST">
+        <div class="row">
+            <div class="center">
+                <div class="theerror">
+                    <div class="errorMes">
+                        {{#if messages.info}}
+                            <div class="entry">
+                                <h4 style="color: rgb(153, 12, 38);">{{messages.info}}</h4>
+                            </div>
+                        {{/if}}
+                    </div>
+                </div>  
+                <span class="input"><label class="name">Name:</label><input type="text" name="name" value="" placeholder="Enter here" class="nameInput"></span>
+                <span class="empty"></span>
+                <span class="counter"> <label>counter:</label> <span class="counting">{{count}}</span></span>
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="row">
+            <div class="center">       
+                <label class="portuguese" id="rad"><input type="radio" name="radioGreet" value="portuguese" class="langInput">Portuguese</label>
+                <label class="swahili" id="rad"><input type="radio" name="radioGreet" value="swedish" class="langInput">Swedish</label>
+                <label class="japanese" id="rad"><input type="radio" name="radioGreet" value="japanese" class="langInput">Japanese</label>    
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="row">
+            <div class="center">
+                <button class="greetButton" id="butt" type="submit">Greet Me</button> 
+            </div>
+        </div>
+    </form>
+    <br>
+    <div class="row">
+        <div class="center">
+            <button class="clearButton" id="butt">Clear Count</button>
+            <a href="#"><button class="names" id="butt">Names Greeted</button></a>
+        </div>
+    </div>
+    <br>
+    <br>
+    <div class="row">
+        <div class="center">
+            <div class="thgreet">
+                <span class="greeting">{{greeting}}</span><span class="nameOutput"></span>
+            </div>
+        </div>
+    </div>
+</div>

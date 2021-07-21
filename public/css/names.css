@@ -1,0 +1,100 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: teal;
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+
+.body-sect {
+    font-family: 'Indie Flower', cursive;
+}
+
+header {
+    background-image: linear-gradient(to bottom right, royalblue, purple, crimson);
+    padding: 3%;
+    border-bottom: solid 0.3rem steelblue;
+}
+
+h1 {
+    text-align: center;
+    font-weight: bolder;
+    font-size: 1rem;
+    font-family: 'Dela Gothic One', cursive;
+    color: whitesmoke;
+}
+
+a {
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    color:purple;
+    padding-bottom: 3%;
+    font-size: 1rem;
+}
+
+.names {
+    font-size: 1rem;
+    width: 100%;
+    height: 5rem;
+    text-align: center;
+    margin-top: 5%;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.links {
+    margin-top: 3%;
+    text-align: center;
+}
+
+a:hover {
+    color: coral;
+    transition: 200ms;
+}
+
+@media only screen and (min-width:768px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .names {
+        font-size: 1.2rem;
+    }
+
+    a {
+        font-size: 1.2rem;
+    }
+}
+
+@media only screen and (min-width:1024px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    .names {
+        font-size: 1.5rem;
+    }
+
+    a {
+        font-size: 1.5rem;
+    }
+}
+
+@media only screen and (min-width:1440px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    .names {
+        font-size: 1.7rem;
+    }
+
+    a {
+        font-size: 1.7rem;
+    }
+}

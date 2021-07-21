@@ -22,7 +22,9 @@ module.exports = function greetExerciseFactFunct() {
     let theWarn = "";
     
     function getName(nameInput) {
-        userName = nameInput.trim();
+        userName = nameInput.theName;
+        userName.trim();
+        userName = userName.charAt(0).toUpperCase() + userName.slice(1);
         return userName;
     }
 
@@ -41,6 +43,7 @@ module.exports = function greetExerciseFactFunct() {
             
             theWarn = error;
             theGreet = "";
+            return theWarn;
         } else {
             // namesList = name1;
         
@@ -80,6 +83,12 @@ module.exports = function greetExerciseFactFunct() {
             }
         }
     }
+
+    function clearingButtonFactFunc() {
+        counter = 0;
+        namesList = {};
+        theGreet = "";
+    }
     
     function values() {
         return {
@@ -101,6 +110,7 @@ module.exports = function greetExerciseFactFunct() {
              radioCheck,
              values,
              noRadioButton,
+             clearingButtonFactFunc
     }
     
 }
