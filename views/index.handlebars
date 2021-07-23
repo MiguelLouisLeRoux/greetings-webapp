@@ -5,18 +5,25 @@
 </div>
 <br>
 <div class="container">
+    <div class="center">
+        <div class="theerror">
+            <div class="errorMes">
+                {{#if messages.error}}
+                    <div class="entry">
+                        <h4 style="color: rgb(153, 12, 38);">{{messages.error}}</h4>
+                    </div>
+                {{/if}}
+                {{#if messages.success}}
+                    <div class="entry">
+                        <h4 style="color: green;">{{messages.success}}</h4>
+                    </div>
+                {{/if}}
+            </div>
+        </div>
+    </div>
     <form action="/name" method="POST">
         <div class="row">
             <div class="center">
-                <div class="theerror">
-                    <div class="errorMes">
-                        {{#if messages.info}}
-                            <div class="entry">
-                                <h4 style="color: rgb(153, 12, 38);">{{messages.info}}</h4>
-                            </div>
-                        {{/if}}
-                    </div>
-                </div>  
                 <span class="input"><label class="name">Name:</label><input type="text" name="name" value="" placeholder="Enter here" class="nameInput"></span>
                 <span class="empty"></span>
                 <span class="counter"> <label>counter:</label> <span class="counting">{{count}}</span></span>
@@ -42,8 +49,8 @@
     <br>
     <div class="row">
         <div class="center">
-            <button class="clearButton" id="butt">Clear Count</button>
-            <a href="#"><button class="names" id="butt">Names Greeted</button></a>
+            <a href="/clear"><button class="clearButton" id="butt" >Clear Count</button></a>
+            <a href="/greetings"><button class="names" id="butt">Names Greeted</button></a>
         </div>
     </div>
     <br>

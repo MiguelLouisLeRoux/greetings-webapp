@@ -3,6 +3,7 @@ module.exports = function greetExerciseFactFunct() {
     //counter and object list
     let counter = 0;
     let namesList = {};
+    let theNameObj = [];
 
     //name variable
     let userName = "";
@@ -10,8 +11,11 @@ module.exports = function greetExerciseFactFunct() {
 
     //Error message variable
     let error = "Oops, no name entered.";
-    let secondGreet = "This name has already been greeted.";
+    let secondGreet = "This person has already been greeted.";
     let noRad = "Oops, no language has been selected a language.";
+
+    //Success message
+    let cleared = "Greets have been cleared.";
 
     //languages
     // var eng = "Hello, ";
@@ -54,6 +58,10 @@ module.exports = function greetExerciseFactFunct() {
                         namesList[userName] = 1;
                         theGreet = portGreet + userName + " !";
                         theWarn = "";
+
+                        let element = new constr(userName, namesList[userName]);
+                        theNameObj.push(element);
+
                         return theGreet;
                         // return namesList;
                     } else if (radVal === "swedish") {
@@ -61,6 +69,10 @@ module.exports = function greetExerciseFactFunct() {
                         namesList[userName] = 1;
                         theGreet = swedGreet + userName + " !";
                         theWarn = "";
+
+                        let element = new constr(userName, namesList[userName]);
+                        theNameObj.push(element);
+
                         return theGreet;
                         // return namesList;
                     } else if (radVal === "japanese") {
@@ -68,6 +80,10 @@ module.exports = function greetExerciseFactFunct() {
                         namesList[userName] = 1;
                         theGreet = japGreet + userName + " !";
                         theWarn = "";
+
+                        let element = new constr(userName, namesList[userName]);
+                        theNameObj.push(element);
+
                         return theGreet;
                         // return namesList;
                     }
@@ -78,7 +94,15 @@ module.exports = function greetExerciseFactFunct() {
                     theWarn = secondGreet;
                     theGreet = "";
                     namesList[userName] ++;
+
+                    for (let i = 0; i < theNameObj.length; i++) {
+                        let itt = theNameObj[i];
+                        if (itt.nameGreeted === userName) {
+                            itt.count = namesList[userName];
+                        }
+                    }
                     return namesList;
+                    // return secondGreet;
                 }
             }
         }
@@ -87,7 +111,27 @@ module.exports = function greetExerciseFactFunct() {
     function clearingButtonFactFunc() {
         counter = 0;
         namesList = {};
+        theNameObj = [];
         theGreet = "";
+        theWarn = "";
+    }
+
+    function constr(nameGreeted, count) {
+        this.nameGreeted = nameGreeted;
+        this.count = count;
+    }
+
+    function partPerson(nameVal){
+        for(let i = 0; i < theNameObj.length; i++){
+            let itt = theNameObj[i];
+
+            if (itt.nameGreeted === nameVal) {
+                return {
+                    theName: itt.nameGreeted,
+                    theCount: itt.count
+                }
+            }
+        }
     }
     
     function values() {
@@ -102,7 +146,9 @@ module.exports = function greetExerciseFactFunct() {
             gJap : japGreet,
             objNames : namesList,
             theError : theWarn,
-            theNameList : namesL
+            theNameList : namesL,
+            dynObj : theNameObj,
+            cleared: cleared
         }
     }
 
@@ -110,7 +156,8 @@ module.exports = function greetExerciseFactFunct() {
              radioCheck,
              values,
              noRadioButton,
-             clearingButtonFactFunc
+             clearingButtonFactFunc,
+             partPerson
     }
     
 }

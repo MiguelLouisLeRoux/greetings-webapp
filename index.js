@@ -14,19 +14,20 @@ app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+app.engine('handlebars', exphbs({defaultLayout: 'main', layoutsDir:__dirname + '/views/layout'}));
+app.set('view engine', 'handlebars');
+
 app.use(session({
-    secret : "Error Message",
+    secret : "Error Message String",
     resave: false,
     saveUninitialized: true
 }));
 
 app.use(flash());
 
-app.engine('handlebars', exphbs({defaultLayout: 'main', layoutsDir:__dirname + '/views/layout'}));
-app.set('view engine', 'handlebars'); 
-
 app.get("/", function(req, res){ 
-    req.flash('info', 'Welcome');
+    req.flash('error', factory.values().theError);
+    
     res.render('index', {
       title: 'Home',
       count: factory.values().counting,
@@ -35,16 +36,39 @@ app.get("/", function(req, res){
     })
 });
 
-app.get('/addFlash', function (req, res) {
-    req.flash('info', factory.values().errorMes);
-    res.redirect('/');
-});
-
 app.post('/name', function(req, res){
     factory.getName({
       theName: req.body.name
     });
+     
     factory.radioCheck(req.body.radioGreet);
     
     res.redirect('/');
+});
+
+app.get('/clear', function (req, res) {
+    req.flash('error', factory.values().cleared);
+    factory.clearingButtonFactFunc();
+    res.redirect('/');
+});
+
+app.get('/greetings', function(req, res){
+    
+    res.render('greetings', {
+        names: factory.values().dynObj
+    })
+});
+
+app.get('/counter', function(req, res){
+    res.render('counter');
+});
+
+app.get('/counter/:person', function (req, res){
+    const person = req.params.person;
+    factory.partPerson(person);
+    res.render('counter', {
+        userName: factory.partPerson(person),
+        count: factory.partPerson(person)
+    });
+    
 });

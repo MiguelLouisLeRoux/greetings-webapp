@@ -1,14 +1,22 @@
-<header>
-    <h1>Names Greeted</h1>
+<header id="greetedHeader">
+    Names Greeted
 </header>
 <div class="container">
-    <div class="center">
-        <div class="names-list">
-        
-        </div>
-    </div>
     <br>
+    <div class="names-list">
+        <table>
+            {{#each names}}
+                <tr>
+                    <td><a id="nGreeted" href="/counter/{{this.nameGreeted}}"><h2>{{this.nameGreeted}}</h2></a></td>
+                </tr>
+            {{/each}}
+        </table>
+    </div>
     <div class="links">
-        <a class="link-back" href="#">Return to Greeting</a>
+        <hr>
+        <br>
+        <a class="link-back" href="/">Return to Greeting</a>
+        <br>
+        <br>
     </div>
 </div>
