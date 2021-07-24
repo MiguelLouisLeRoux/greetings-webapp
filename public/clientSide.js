@@ -23,7 +23,6 @@ document.addEventListener('DOMContentLoaded', ()=>{
    if (theGreet.hasChildNodes()) {
        setTimeout(function (){
             theGreet.innerHTML = "";
-       }, 3000);
-     
+       }, 3000); 
     }
 });
