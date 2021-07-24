@@ -12,46 +12,37 @@ module.exports = function greetExerciseFactFunct() {
     //Error message variable
     let error = "Oops, no name entered.";
     let secondGreet = "This person has already been greeted.";
-    let noRad = "Oops, no language has been selected a language.";
+    let noRad = "Oops, no language has been selected.";
 
     //Success message
-    let cleared = "Greets have been cleared.";
+    let cleared;
 
     //languages
-    // var eng = "Hello, ";
     let portGreet = "Olá, ";
     let swedGreet = "Hej, ";
     let japGreet = "こんにちは, ";
     let theGreet = "";
     let theWarn = "";
     
-    function getName(nameInput) {
-        userName = nameInput.theName;
-        userName.trim();
-        userName = userName.charAt(0).toUpperCase() + userName.slice(1);
-        return userName;
-    }
-
-    function noRadioButton() {
-        if (userName === "" || !/^[a-zA-Z]+$/.test(userName)) {
-            theGreet = "";
-            theWarn = error;
-        } else { 
-            theWarn = noRad;
-            theGreet = "";
-        }
-    }
-    
-    function radioCheck(radVal) {
-        if (userName === "" || !/^[a-zA-Z]+$/.test(userName)) {
-            
-            theWarn = error;
-            theGreet = "";
-            return theWarn;
-        } else {
-            // namesList = name1;
+    function radioCheck(theName, radVal) {
+        cleared = "";
+        userName = theName;
         
-            if (/^[a-zA-Z]+$/.test(userName)) {
+        if (userName === "" && radVal === undefined) {
+            theWarn = error;
+            return theWarn
+        } else if (radVal === undefined && userName !== "") {
+            theWarn = noRad;
+            userName = "";
+            return theWarn
+        } else {
+            userName.trim();
+            userName = userName.charAt(0).toUpperCase() + userName.slice(1);
+            if (!/^[a-zA-Z]+$/.test(userName)) {    
+                theWarn = error;
+                theGreet = "";
+                userName = "";
+            } else if (/^[a-zA-Z]+$/.test(userName)) {
                 if (namesList[userName] === undefined) {
                     if (radVal === "portuguese") {
                         counter++;
@@ -102,7 +93,6 @@ module.exports = function greetExerciseFactFunct() {
                         }
                     }
                     return namesList;
-                    // return secondGreet;
                 }
             }
         }
@@ -114,7 +104,14 @@ module.exports = function greetExerciseFactFunct() {
         theNameObj = [];
         theGreet = "";
         theWarn = "";
+        cleared = "Greets have been cleared.";
     }
+
+    function clearing() {
+        theGreet = "";
+        theWarn = "";
+        cleared = "";
+    };
 
     function constr(nameGreeted, count) {
         this.nameGreeted = nameGreeted;
@@ -152,12 +149,11 @@ module.exports = function greetExerciseFactFunct() {
         }
     }
 
-    return { getName,
-             radioCheck,
+    return { radioCheck,
              values,
-             noRadioButton,
              clearingButtonFactFunc,
-             partPerson
+             partPerson,
+             clearing
     }
     
 }

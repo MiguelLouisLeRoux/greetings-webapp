@@ -8,16 +8,12 @@
     <div class="center">
         <div class="theerror">
             <div class="errorMes">
-                {{#if messages.error}}
-                    <div class="entry">
-                        <h4 style="color: rgb(153, 12, 38);">{{messages.error}}</h4>
-                    </div>
-                {{/if}}
-                {{#if messages.success}}
-                    <div class="entry">
-                        <h4 style="color: green;">{{messages.success}}</h4>
-                    </div>
-                {{/if}}
+                <div class="error-entry">
+                    <h4 style="color: rgb(153, 12, 38);" class="flashError">{{messages.error}}</h4>
+                </div>
+                <div class="success-entry">
+                    <h4 style="color: rgb(122, 230, 122);" class="flashSuccess">{{messages.success}}</h4>
+                </div>
             </div>
         </div>
     </div>

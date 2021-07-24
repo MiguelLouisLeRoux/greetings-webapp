@@ -24,36 +24,29 @@ app.use(session({
 }));
 
 app.use(flash());
-
+ 
 app.get("/", function(req, res){ 
     req.flash('error', factory.values().theError);
-    
+    req.flash('success', factory.values().cleared);
     res.render('index', {
       title: 'Home',
       count: factory.values().counting,
-      greeting: factory.values().theGreeting
-
+      greeting: factory.values().theGreeting 
     })
+    factory.clearing();
 });
 
 app.post('/name', function(req, res){
-    factory.getName({
-      theName: req.body.name
-    });
-     
-    factory.radioCheck(req.body.radioGreet);
-    
+    factory.radioCheck(req.body.name, req.body.radioGreet); 
     res.redirect('/');
 });
 
 app.get('/clear', function (req, res) {
-    req.flash('error', factory.values().cleared);
     factory.clearingButtonFactFunc();
     res.redirect('/');
 });
 
-app.get('/greetings', function(req, res){
-    
+app.get('/greetings', function(req, res){ 
     res.render('greetings', {
         names: factory.values().dynObj
     })
@@ -69,6 +62,5 @@ app.get('/counter/:person', function (req, res){
     res.render('counter', {
         userName: factory.partPerson(person),
         count: factory.partPerson(person)
-    });
-    
+    });  
 });
